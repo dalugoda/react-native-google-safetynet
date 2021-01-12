@@ -86,11 +86,36 @@ function sendAttestationRequestJWT(nonce, apiKey){
   });
 }
 
+/**
+ * Get app verification enabled status
+ * @method isVerificationEnabled
+ * @return {Promise}
+ */
+function isVerificationEnabled(){
+  return RNGoogleSafetyNet.isVerificationEnabled().then((result) => {    
+    return result;
+  });
+}
+
+/**
+ * Get harmful apps
+ * @method getHarmfulApps
+ * @return {Promise}
+ */
+function getHarmfulApps(){
+  return RNGoogleSafetyNet.getHarmfulApps().then((result) => {    
+    return result;
+  });
+}
+
+
 export default {
   isPlayServicesAvailable,
   generateNonce,
   sendAttestationRequest,
   verifyAttestationResponse,
   sendAndVerifyAttestation,
-  sendAttestationRequestJWT
+  sendAttestationRequestJWT,
+  isVerificationEnabled,
+  getHarmfulApps
 };
